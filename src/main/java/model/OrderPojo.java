@@ -1,3 +1,5 @@
+package model;
+
 public class OrderPojo {
     private String[] ingredients;
 

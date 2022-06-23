@@ -1,3 +1,5 @@
+package model;
+
 public class UserTokenPojo {
     private String accessToken;
 

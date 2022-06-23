@@ -1,9 +1,13 @@
-import io.restassured.response.Response;
-import static io.restassured.RestAssured.given;
+package api;
+
 import io.qameta.allure.Step;
+import io.restassured.response.Response;
+
+import static io.restassured.RestAssured.given;
+
 public class CreateUser {
     @Step("Creating a new user")
-    public Response createUser(Object body) {
+    public static Response createUser(Object body) {
         return given()
                 .header("Content-type", "application/json")
                 .and()
