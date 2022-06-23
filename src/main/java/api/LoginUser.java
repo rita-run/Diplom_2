@@ -2,7 +2,7 @@ package api;
 
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
-import model.UserTokenPojo;
+import model.UserToken;
 
 import static io.restassured.RestAssured.given;
 
@@ -17,15 +17,15 @@ public class LoginUser {
                 .post("/api/auth/login");
     }
 
-    @Step("Logging in a user and getting a token")
-    public static UserTokenPojo loginAndGetToken(Object body) {
+    @Step("Getting a token")
+    public static UserToken getToken(Object body) {
         return given()
                 .header("Content-type", "application/json")
                 .body(body)
                 .post("/api/auth/login")
                 .thenReturn()
                 .body()
-                .as(UserTokenPojo.class);
+                .as(UserToken.class);
     }
 }
 

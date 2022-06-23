@@ -1,6 +1,6 @@
 package model;
 
-public class UserTokenPojo {
+public class UserToken {
     private String accessToken;
 
     public String getToken() {

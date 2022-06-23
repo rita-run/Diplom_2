@@ -3,22 +3,21 @@ package api;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import model.OrderPojo;
+import model.UserToken;
 
 import static io.restassured.RestAssured.given;
 
-public class CreateOrder {
-    @Step("Creating a new order")
-    public static Response createOrder(String accessToken, OrderPojo body) {
-        //Логиним созданного пользователя и получаем токен
+public class UpdateUserInfo {
+    @Step("Deleting a user")
+    public static Response updateUserInfo(UserToken accessToken, Object update) {
         RequestSpecification request = given()
                 .header("Content-type", "application/json");
         if (accessToken != null) {
-            request = request.header("Authorization", accessToken);
+            request = request.header("Authorization", accessToken.getToken());
         }
         return request.and()
-                .body(body)
+                .body(update)
                 .when()
-                .post("/api/orders");
+                .patch("/api/auth/user");
     }
 }

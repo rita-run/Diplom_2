@@ -1,10 +1,10 @@
 package model;
 
-public class UserLoginPojo {
+public class UserLogin {
     private final String email;
     private final String password;
 
-    public UserLoginPojo(String email, String password) {
+    public UserLogin(String email, String password) {
         this.email = email;
         this.password = password;
     }

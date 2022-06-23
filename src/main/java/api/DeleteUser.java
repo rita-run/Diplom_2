@@ -1,7 +1,7 @@
 package api;
 
 import io.qameta.allure.Step;
-import model.UserTokenPojo;
+import model.UserToken;
 
 import static io.restassured.RestAssured.given;
 
@@ -9,7 +9,7 @@ public class DeleteUser {
     @Step("Deleting a user")
     public static void deleteUser(Object userLogin) {
         //Логиним созданного пользователя и получаем токен
-        UserTokenPojo accessToken = LoginUser.loginAndGetToken(userLogin);
+        UserToken accessToken = LoginUser.getToken(userLogin);
         if (accessToken.getToken() != null) {
             //Удаляем созданного пользователя
             given()
